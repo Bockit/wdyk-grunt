@@ -1,0 +1,10 @@
+section
+    h2 Javascript Build
+    p We used AMD for a long time
+    pre: code.bash(data-trim).
+        r.js -o build.js
+        r.js -o build-ie.js
+
+    p And recently swapped to browserify
+    pre: code.bash(data-trim).
+        browserify main.js -t coffeeify -o bundle.js

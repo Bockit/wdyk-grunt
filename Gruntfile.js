@@ -95,7 +95,18 @@ module.exports = function(grunt) {
 			]
 		},
 
+		jade: {
+			compile: {
+				files: {
+					'index2.html': 'index.jade'
+				}
+			}
+		},
+
 		watch: {
+			options: {
+				livereload: true
+			},
 			main: {
 				files: [ 'Gruntfile.js', 'js/reveal.js', 'css/reveal.css' ],
 				tasks: 'default'
@@ -103,6 +114,10 @@ module.exports = function(grunt) {
 			theme: {
 				files: [ 'css/theme/source/*.scss', 'css/theme/template/*.scss' ],
 				tasks: 'themes'
+			},
+			jade: {
+				files: ['**/*.jade'],
+				tasks: ['jade']
 			}
 		}
 
@@ -116,6 +131,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-contrib-sass' );
 	grunt.loadNpmTasks( 'grunt-contrib-connect' );
+	grunt.loadNpmTasks( 'grunt-contrib-jade' );
 	grunt.loadNpmTasks( 'grunt-zip' );
 
 	// Default task

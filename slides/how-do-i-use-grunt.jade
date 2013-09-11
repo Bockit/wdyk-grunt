@@ -1,0 +1,17 @@
+section
+    h2 Using Grunt
+    ul
+        li Make a file <code>Gruntfile.js</code> (or .coffee) in your package root.
+        li Add a package.json if you haven't already.
+        li <code> npm install grunt --save-dev</code>
+        li Add the following code to your gruntfile:
+    pre: code.javascript(data-trim).
+        module.exports = function(grunt) {
+            grunt.initConfig({})
+
+            grunt.registerTask('my-first-task', function() {
+                console.log('Hello, world!')
+            })
+        }
+
+    pre: code.bash(data-trim) $ grunt my-first-task
