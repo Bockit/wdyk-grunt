@@ -1,22 +1,18 @@
 section
     h2 Using Grunt continued
-    ul
-        li We want to do more than echo out <code>'Hello, world!'</code>
-        li There are hundreds of pre-written tasks that we just have to configure.
-
-        pre: code.javascript(data-trim).
-            module.exports = function(grunt) {
-                grunt.initConfig({
-                    jade: {
-                        compile: {
-                            files: {
-                                'index.html': 'index.jade'
-                            }
+    pre: code.javascript(data-trim).
+        module.exports = function(grunt) {
+            grunt.initConfig({
+                jade: {
+                    compile: {
+                        files: {
+                            'index.html': 'index.jade'
                         }
                     }
-                })
+                }
+            })
 
-                grunt.loadNpmTasks('grunt-contrib-jade');
-            }
+            grunt.loadNpmTasks('grunt-contrib-jade');
+        }
 
-        pre: code.bash(data-trim) $ grunt jade:compile
+    pre: code.bash(data-trim) $ grunt jade:compile

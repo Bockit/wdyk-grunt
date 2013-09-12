@@ -78,27 +78,9 @@ module.exports = function(grunt) {
 		connect: {
 			server: {
 				options: {
+					hostname: '*',
 					port: 8000,
 					base: '.'
-				}
-			}
-		},
-
-		zip: {
-			'reveal-js-presentation.zip': [
-				'index.html',
-				'css/**',
-				'js/**',
-				'lib/**',
-				'images/**',
-				'plugin/**'
-			]
-		},
-
-		jade: {
-			compile: {
-				files: {
-					'index2.html': 'index.jade'
 				}
 			}
 		},
@@ -118,6 +100,25 @@ module.exports = function(grunt) {
 			jade: {
 				files: ['**/*.jade'],
 				tasks: ['jade']
+			}
+		},
+
+		zip: {
+			'reveal-js-presentation.zip': [
+				'index.html',
+				'css/**',
+				'js/**',
+				'lib/**',
+				'images/**',
+				'plugin/**'
+			]
+		},
+
+		jade: {
+			compile: {
+				files: {
+					'index2.html': 'index.jade'
+				}
 			}
 		}
 
