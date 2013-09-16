@@ -1,0 +1,18 @@
+section
+    h2 Using Grunt continued
+    pre: code.javascript(data-trim).
+        module.exports = function(grunt) {
+            grunt.initConfig({
+                jade: {
+                    compile: {
+                        files: {
+                            'index.html': 'index.jade'
+                        }
+                    }
+                }
+            })
+
+            grunt.loadNpmTasks('grunt-contrib-jade');
+        }
+
+    pre: code.bash(data-trim) $ grunt jade:compile

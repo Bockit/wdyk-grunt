@@ -1,0 +1,7 @@
+section
+    pre: code.bash(data-trim).
+        python extract-jade.py
+        # Manual copy pasting
+        ./combine.sh
+        uglify js/combined.js > js/minified.js
+        # zip up and email the files to the client

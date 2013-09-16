@@ -1,0 +1,105 @@
+doctype 5
+html(lang="en")
+
+    head
+        meta(charset="utf-8")
+
+        title Giving your project oomph with Grunt
+
+        meta(name="description", content="Why we use Grunt and some awesome things you can do with it.")
+        meta(name="author", content="Hakim El Hattab")
+
+        meta(name="apple-mobile-web-app-capable", content="yes")
+        meta(name="apple-mobile-web-app-status-bar-style", content="black-translucent")
+
+        meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+
+        link(rel="stylesheet", href="css/reveal.min.css")
+        link(rel="stylesheet", href="css/theme/sky.css", id="theme")
+
+        //- For syntax highlighting
+        link(rel="stylesheet", href="lib/css/zenburn.css")
+
+        //- If the query includes 'print-pdf', use the PDF print sheet
+        script.
+            document.write( 
+                '<link rel="stylesheet" href="css/print/' + 
+                ( window.location.search.match( /print-pdf/gi ) 
+                    ? 'pdf' 
+                    : 'paper' 
+                ) + 
+                '.css" type="text/css" media="print">' );
+
+        script(src="http://localhost:35729/livereload.js")
+
+        | <!--[if lt IE 9]>
+        script(src="lib/js/html5shiv.js")
+        | <![endif]-->
+
+    body
+
+        //- Presentation goes here
+        .reveal
+            .slides
+                include slides/title
+
+                section.census
+                    include slides/census-one-year
+                    include slides/census-picture
+                    include slides/census-build
+
+                section.builds
+                    include slides/builds-intro
+                    include slides/builds-module
+                    include slides/builds-push
+
+                include slides/builds-outro
+                include slides/xkcd
+                
+                section.solutions
+                    include slides/solutions
+                    include slides/scripts
+
+                include slides/dangerous
+                
+                section.grunt
+                    include slides/what-is-grunt
+                    include slides/how-do-i-install-grunt
+                    include slides/how-do-i-use-grunt
+                    include slides/how-do-i-use-grunt-2
+
+
+                include slides/demo
+
+
+
+                //- At some point: 
+                    http://imgs.xkcd.com/comics/is_it_worth_the_time.png
+
+        
+        script(src="lib/js/head.min.js")
+        script(src="js/reveal.min.js")
+
+        script.
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: false,
+                history: true,
+                center: true,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });

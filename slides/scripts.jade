@@ -1,0 +1,18 @@
+section
+    h2 One project
+
+    pre: code.json(data-trim).
+        {
+            "scripts": {
+              "start": "beefy src/app/bootstrap.coffee:bundle.js --live -- -t coffeeify -t simple-jadeify -t ractify",
+              "bundle": "browserify src/app/bootstrap.coffee -t coffeeify -t simple-jadeify -t ractify > bundle.js",
+              "start-server": "POLL=10000 node app/server.js",
+              "app": "mkdir -p dist/{app,data}; npm run bundle && npm run stylus && (rm dist/app/app.nw||true) && npm run zip && npm run copier",
+              "copier": "cp ./vendor/nw/* ./dist/app/ && npm run osx-copy && cp -r ./app/data/ ./dist/data/ && cp ./{app,dist}/start.bat && cp ./{app,dist}/start.sh",
+              "osx-copy": "cp -r ./vendor/nw-osx.app ./dist/app/ && cp ./dist/app/app.nw ./dist/app/nw-osx.app/Contents/Resources/app.nw",
+              "zip": "(find node_modules src app | zip dist/app/app.nw -@) && zip dist/app/app.nw *.js *.json *.html *.css",
+              "osx": "open dist/app/app.nw --args $(pwd)/dist/app/app.nw $(pwd)/dist/data",
+              "lite": "POLL=60000 node app/server.js",
+              "stylus": "stylus -o . src/styl/main.styl"
+            }
+        }
